@@ -36,7 +36,7 @@ namespace ForensicYARAScanner
 			OnMatchRules = onMatchRules;
 		}
 
-		public List<string> ProcessRule(FileProperties fileProperties)
+		public List<string> ProcessRule(ScanResults fileProperties)
 		{
 			if (FilterMatches(fileProperties))
 			{
@@ -48,7 +48,7 @@ namespace ForensicYARAScanner
 			}
 		}
 
-		private bool FilterMatches(FileProperties fileProperties)
+		private bool FilterMatches(ScanResults fileProperties)
 		{
 			if (FilterType == YaraFilterType.AlwaysRun)
 			{
@@ -56,7 +56,7 @@ namespace ForensicYARAScanner
 			}
 			else if (FilterType == YaraFilterType.IsPeFile)
 			{
-				return fileProperties.IsPeDataPopulated && (fileProperties.PeData.IsExe || fileProperties.PeData.IsDll || fileProperties.PeData.IsDriver);
+				return fileProperties.IsPe;
 			}
 			else if (FilterType == YaraFilterType.FileExtension)
 			{

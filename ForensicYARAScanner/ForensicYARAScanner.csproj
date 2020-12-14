@@ -79,6 +79,8 @@
     </Compile>
     <Compile Include="ScanParameters.cs" />
     <Compile Include="ScanResults.cs" />
+    <Compile Include="Sha256Helper.cs" />
+    <Compile Include="Toggle.cs" />
     <Compile Include="YaraFilter.cs" />
     <Compile Include="YaraHelper.cs" />
     <None Include="packages.config" />

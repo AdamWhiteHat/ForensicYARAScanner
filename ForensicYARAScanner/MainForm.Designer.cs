@@ -31,7 +31,7 @@ namespace ForensicYARAScanner
 		{
 			this.btnBrowse = new System.Windows.Forms.Button();
 			this.tbPath = new System.Windows.Forms.TextBox();
-			this.panel1 = new System.Windows.Forms.Panel();
+			this.panelDataPersistenceSelection = new System.Windows.Forms.Panel();
 			this.labelTextBoxDescription = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.btnPersistenceBrowse = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@ namespace ForensicYARAScanner
 			this.tbOutput = new System.Windows.Forms.TextBox();
 			this.linkGitHub = new System.Windows.Forms.LinkLabel();
 			this.btnSearch = new System.Windows.Forms.Button();
-			this.panel2 = new System.Windows.Forms.Panel();
+			this.panelYaraFilters = new System.Windows.Forms.Panel();
 			this.panelYara = new System.Windows.Forms.Panel();
 			this.radioButtonYara_ElseNoMatch = new System.Windows.Forms.RadioButton();
 			this.radioButtonYara_AlwaysRun = new System.Windows.Forms.RadioButton();
@@ -62,8 +62,8 @@ namespace ForensicYARAScanner
 			this.btnYaraLoad = new System.Windows.Forms.Button();
 			this.panelListBox = new System.Windows.Forms.Panel();
 			this.listBoxYaraFilters = new System.Windows.Forms.ListBox();
-			this.panel1.SuspendLayout();
-			this.panel2.SuspendLayout();
+			this.panelDataPersistenceSelection.SuspendLayout();
+			this.panelYaraFilters.SuspendLayout();
 			this.panelYara.SuspendLayout();
 			this.panelYaraMatchRules.SuspendLayout();
 			this.panelYaraFilterValue.SuspendLayout();
@@ -92,23 +92,23 @@ namespace ForensicYARAScanner
 			this.tbPath.Text = "C:\\";
 			this.tbPath.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textbox_KeyDown);
 			// 
-			// panel1
+			// panelDataPersistenceSelection
 			// 
-			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.panelDataPersistenceSelection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel1.Controls.Add(this.labelTextBoxDescription);
-			this.panel1.Controls.Add(this.label2);
-			this.panel1.Controls.Add(this.btnPersistenceBrowse);
-			this.panel1.Controls.Add(this.tbPersistenceParameter);
-			this.panel1.Controls.Add(this.radioPersistenceCSV);
-			this.panel1.Controls.Add(this.radioPersistenceSqlite);
-			this.panel1.Controls.Add(this.radioPersistenceSqlServer);
-			this.panel1.Location = new System.Drawing.Point(3, 196);
-			this.panel1.Margin = new System.Windows.Forms.Padding(0);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(757, 96);
-			this.panel1.TabIndex = 11;
+			this.panelDataPersistenceSelection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panelDataPersistenceSelection.Controls.Add(this.labelTextBoxDescription);
+			this.panelDataPersistenceSelection.Controls.Add(this.label2);
+			this.panelDataPersistenceSelection.Controls.Add(this.btnPersistenceBrowse);
+			this.panelDataPersistenceSelection.Controls.Add(this.tbPersistenceParameter);
+			this.panelDataPersistenceSelection.Controls.Add(this.radioPersistenceCSV);
+			this.panelDataPersistenceSelection.Controls.Add(this.radioPersistenceSqlite);
+			this.panelDataPersistenceSelection.Controls.Add(this.radioPersistenceSqlServer);
+			this.panelDataPersistenceSelection.Location = new System.Drawing.Point(3, 196);
+			this.panelDataPersistenceSelection.Margin = new System.Windows.Forms.Padding(0);
+			this.panelDataPersistenceSelection.Name = "panelDataPersistenceSelection";
+			this.panelDataPersistenceSelection.Size = new System.Drawing.Size(757, 96);
+			this.panelDataPersistenceSelection.TabIndex = 11;
 			// 
 			// labelTextBoxDescription
 			// 
@@ -218,22 +218,22 @@ namespace ForensicYARAScanner
 			this.btnSearch.UseVisualStyleBackColor = true;
 			this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
 			// 
-			// panel2
+			// panelYaraFilters
 			// 
-			this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.panelYaraFilters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel2.Controls.Add(this.panelYara);
-			this.panel2.Controls.Add(this.btnAddYaraFilter);
-			this.panel2.Controls.Add(this.btnRemoveYaraFilter);
-			this.panel2.Controls.Add(this.btnYaraSave);
-			this.panel2.Controls.Add(this.btnYaraLoad);
-			this.panel2.Controls.Add(this.panelListBox);
-			this.panel2.Location = new System.Drawing.Point(3, 39);
-			this.panel2.Margin = new System.Windows.Forms.Padding(0);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(757, 154);
-			this.panel2.TabIndex = 15;
+			this.panelYaraFilters.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panelYaraFilters.Controls.Add(this.panelYara);
+			this.panelYaraFilters.Controls.Add(this.btnAddYaraFilter);
+			this.panelYaraFilters.Controls.Add(this.btnRemoveYaraFilter);
+			this.panelYaraFilters.Controls.Add(this.btnYaraSave);
+			this.panelYaraFilters.Controls.Add(this.btnYaraLoad);
+			this.panelYaraFilters.Controls.Add(this.panelListBox);
+			this.panelYaraFilters.Location = new System.Drawing.Point(3, 39);
+			this.panelYaraFilters.Margin = new System.Windows.Forms.Padding(0);
+			this.panelYaraFilters.Name = "panelYaraFilters";
+			this.panelYaraFilters.Size = new System.Drawing.Size(757, 154);
+			this.panelYaraFilters.TabIndex = 15;
 			// 
 			// panelYara
 			// 
@@ -450,19 +450,20 @@ namespace ForensicYARAScanner
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(764, 412);
-			this.Controls.Add(this.panel2);
+			this.Controls.Add(this.panelYaraFilters);
 			this.Controls.Add(this.tbOutput);
 			this.Controls.Add(this.linkGitHub);
 			this.Controls.Add(this.btnSearch);
-			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.panelDataPersistenceSelection);
 			this.Controls.Add(this.btnBrowse);
 			this.Controls.Add(this.tbPath);
 			this.MinimumSize = new System.Drawing.Size(780, 450);
 			this.Name = "MainForm";
 			this.Text = "Forensic YARA Scanner";
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
-			this.panel2.ResumeLayout(false);
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+			this.panelDataPersistenceSelection.ResumeLayout(false);
+			this.panelDataPersistenceSelection.PerformLayout();
+			this.panelYaraFilters.ResumeLayout(false);
 			this.panelYara.ResumeLayout(false);
 			this.panelYara.PerformLayout();
 			this.panelYaraMatchRules.ResumeLayout(false);
@@ -479,7 +480,7 @@ namespace ForensicYARAScanner
 
 		private System.Windows.Forms.Button btnBrowse;
 		private System.Windows.Forms.TextBox tbPath;
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel panelDataPersistenceSelection;
 		private System.Windows.Forms.Label labelTextBoxDescription;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Button btnPersistenceBrowse;
@@ -490,7 +491,7 @@ namespace ForensicYARAScanner
 		private System.Windows.Forms.TextBox tbOutput;
 		private System.Windows.Forms.LinkLabel linkGitHub;
 		private System.Windows.Forms.Button btnSearch;
-		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Panel panelYaraFilters;
 		private System.Windows.Forms.Panel panelYara;
 		private System.Windows.Forms.RadioButton radioButtonYara_ElseNoMatch;
 		private System.Windows.Forms.RadioButton radioButtonYara_AlwaysRun;

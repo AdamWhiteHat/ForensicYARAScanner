@@ -12,7 +12,6 @@ namespace ForensicYARAScanner
 	{
 		public CancellationToken CancelToken { get; set; }
 		public string SelectedFolder { get; set; }
-		public string[] SearchPatterns { get; set; }
 		public List<YaraFilter> YaraParameters { get; set; }
 		public Action<string> ReportOutputFunction { get; set; }
 		public Action<string> LogOutputFunction { get; set; }
@@ -22,7 +21,6 @@ namespace ForensicYARAScanner
 
 		public ScanParameters(CancellationToken cancelToken,
 								string selectedFolder,
-								string searchPatterns,
 								List<YaraFilter> yaraParameters,
 								IDataPersistenceLayer dataPersistenceLayerClass,
 								Action<string> reportOutputFunction,
@@ -38,7 +36,6 @@ namespace ForensicYARAScanner
 			this.LogOutputFunction = logOutputFunction;
 			this.ReportResultsFunction = reportResultsFunction;
 			this.ReportExceptionFunction = reportExceptionFunction;
-			this.SearchPatterns = ParseSearchPatterns(searchPatterns);
 		}
 
 		private string[] ParseSearchPatterns(string searchPattern)
@@ -57,14 +54,34 @@ namespace ForensicYARAScanner
 
 		public void ThrowIfAnyParametersInvalid()
 		{
-			if (DataPersistenceLayer == null) { throw new ArgumentException(nameof(DataPersistenceLayer)); }
-			if (SearchPatterns == null) { throw new ArgumentNullException(nameof(SearchPatterns)); }
-			if (ReportExceptionFunction == null) { throw new ArgumentNullException(nameof(ReportExceptionFunction)); }
-			if (ReportOutputFunction == null) { throw new ArgumentNullException(nameof(ReportOutputFunction)); }
-			if (LogOutputFunction == null) { throw new ArgumentNullException(nameof(LogOutputFunction)); }
-			if (ReportResultsFunction == null) { throw new ArgumentNullException(nameof(ReportResultsFunction)); }
-			if (string.IsNullOrWhiteSpace(SelectedFolder)) { throw new ArgumentNullException(nameof(SelectedFolder)); }
-			if (!Directory.Exists(SelectedFolder)) { throw new DirectoryNotFoundException(SelectedFolder); }
+			if (DataPersistenceLayer == null)
+			{
+				throw new ArgumentException(nameof(DataPersistenceLayer));
+			}
+			if (ReportExceptionFunction == null)
+			{
+				throw new ArgumentNullException(nameof(ReportExceptionFunction));
+			}
+			if (ReportOutputFunction == null)
+			{
+				throw new ArgumentNullException(nameof(ReportOutputFunction));
+			}
+			if (LogOutputFunction == null)
+			{
+				throw new ArgumentNullException(nameof(LogOutputFunction));
+			}
+			if (ReportResultsFunction == null)
+			{
+				throw new ArgumentNullException(nameof(ReportResultsFunction));
+			}
+			if (string.IsNullOrWhiteSpace(SelectedFolder))
+			{
+				throw new ArgumentNullException(nameof(SelectedFolder));
+			}
+			if (!Directory.Exists(SelectedFolder))
+			{
+				throw new DirectoryNotFoundException(SelectedFolder);
+			}
 
 			char suppliedDriveLetter = char.ToUpper(SelectedFolder[0]);
 
