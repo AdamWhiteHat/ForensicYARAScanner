@@ -38,20 +38,6 @@ namespace ForensicYARAScanner
 			this.ReportExceptionFunction = reportExceptionFunction;
 		}
 
-		private string[] ParseSearchPatterns(string searchPattern)
-		{
-			string[] patterns = new string[] { ".exe", ".dll", ".sys", ".drv", ".ocx", ".com", ".scr" };
-
-			if (!string.IsNullOrWhiteSpace(searchPattern))
-			{
-				patterns = searchPattern.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
-				patterns = patterns.Select(s => s.Contains(".") ? s.Replace("*", "") : s).ToArray();
-			}
-
-			return patterns;
-
-		}
-
 		public void ThrowIfAnyParametersInvalid()
 		{
 			if (DataPersistenceLayer == null)

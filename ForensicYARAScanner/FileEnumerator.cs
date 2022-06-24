@@ -53,7 +53,7 @@ namespace ForensicYARAScanner
 							  | NtfsNodeAttributes.SparseFile
 							 )
 							) == 0) // This means that we DONT want any matches of the above NtfsNodeAttributes type
-					.Where(node => FileMatchesPattern(node.FullName, parameters.SearchPatterns));
+					.Where(node => FileMatchesPattern(node.FullName));
 
 			if (parameters.SelectedFolder.ToCharArray().Length > 3)
 			{
@@ -64,7 +64,7 @@ namespace ForensicYARAScanner
 			return mftNodes;
 		}
 
-		private static bool FileMatchesPattern(string fullName, string[] searchPatterns)
+		private static bool FileMatchesPattern(string fullName)
 		{
 			string filename = Path.GetFileName(fullName);
 			string rootDirectory = Path.GetDirectoryName(fullName).Substring(3);
@@ -92,36 +92,7 @@ namespace ForensicYARAScanner
 				}
 			}
 
-			if (searchPatterns.Contains("*"))
-			{
-				return true;
-			}
-
-			string extension = Path.GetExtension(filename);
-			if (extension.Length == 0)
-			{
-				return false;
-			}
-
-			foreach (string pattern in searchPatterns)
-			{
-				if (pattern.Contains("."))
-				{
-					if (extension.Contains(pattern))
-					{
-						return true;
-					}
-				}
-				else
-				{
-					if (filename.Contains(pattern))
-					{
-						return true;
-					}
-				}
-			}
-
-			return false;
+			return true;
 		}
 	}
 }

@@ -253,6 +253,11 @@ namespace ForensicYARAScanner
 			{
 				panelYaraFilterValue.Visible = true;
 			}
+
+			if (control.Name.Contains("MIME"))
+			{
+				labelYaraFilterValue.Text = "";
+			}
 		}
 
 		private void UpdateYaraFilterListbox()
